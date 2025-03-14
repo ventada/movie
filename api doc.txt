@@ -3,7 +3,7 @@ curl --request GET
         --url 'https://imdb236.p.rapidapi.com/imdb/search?type=movie&genre=Drama&genres=Drama&rows=25&sortOrder=ASC&sortField=id' 
         --header 'x-rapidapi-host: imdb236.p.rapidapi.com' 
         --header 'x-rapidapi-key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0'
-
+ Parameter 'genres' must be a array;   Allowed values are: Drama, Comedy, Documentary, Action, Romance, Thriller, Crime, Horror, Adventure, Family, Animation, Reality-TV, Mystery, Music, Talk-Show, Fantasy, History, Biography, Sci-Fi, Sport, Musical, Adult, War, News, Game-Show, Western, Short, Film-Noir"
 
 
 
@@ -57,6 +57,10 @@ GET /imdb/most-popular-tv HTTP/1.1
 X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
 X-Rapidapi-Host: imdb236.p.rapidapi.com
 Host: imdb236.p.rapidapi.com
+
+
+
+
 Api Deatal for imdb id 
 GET /imdb/tt7631058 HTTP/1.1
 X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
@@ -64,6 +68,9 @@ X-Rapidapi-Host: imdb236.p.rapidapi.com
 Host: imdb236.p.rapidapi.com
 
 
+
+
+ 
 
 
 Api for rating for imdbd id 
