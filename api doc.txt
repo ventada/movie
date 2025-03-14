@@ -1,0 +1,82 @@
+﻿Api for search 
+curl --request GET 
+        --url 'https://imdb236.p.rapidapi.com/imdb/search?type=movie&genre=Drama&genres=Drama&rows=25&sortOrder=ASC&sortField=id' 
+        --header 'x-rapidapi-host: imdb236.p.rapidapi.com' 
+        --header 'x-rapidapi-key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0'
+
+
+
+
+Api for auto complete 
+curl --request GET 
+        --url 'https://imdb236.p.rapidapi.com/imdb/autocomplete?query=break' 
+        --header 'x-rapidapi-host: imdb236.p.rapidapi.com' 
+        --header 'x-rapidapi-key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0'
+
+
+
+
+Apis for movies 
+Top 250 movies 
+GET /imdb/top250-movies HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+
+
+
+
+Top box office 
+GET /imdb/top-box-office HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+
+
+
+
+Most popular movies
+GET /imdb/most-popular-movies HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+
+
+
+
+Api for tv shows 
+Top 250 tv show 
+GET /imdb/top250-tv HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+
+
+Most popular tv shows
+GET /imdb/most-popular-tv HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+Api Deatal for imdb id 
+GET /imdb/tt7631058 HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+
+
+
+
+Api for rating for imdbd id 
+GET /imdb/tt7631058/rating HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
+
+
+
+
+Cast for imdb id 
+GET /imdb/tt7631058/cast HTTP/1.1
+X-Rapidapi-Key: 2ba667b1f2msh73661dfc3dcc28cp13775cjsn52bde160aef0
+X-Rapidapi-Host: imdb236.p.rapidapi.com
+Host: imdb236.p.rapidapi.com
