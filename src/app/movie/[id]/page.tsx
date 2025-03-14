@@ -5,13 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getMovieDetails, getMockMovies } from "@/services/movieService";
 
-interface MovieDetailsProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function MovieDetailsPage({ params }: MovieDetailsProps) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function MovieDetailsPage({ params }: any) {
   const { id } = params;
   const [movie, setMovie] = useState<any>(null);
   const [loading, setLoading] = useState(true);

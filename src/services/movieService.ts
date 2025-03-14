@@ -17,6 +17,10 @@ export interface Movie {
   image: string;
   rating?: string;
   description?: string;
+  rank?: number;
+  weekend?: string;
+  gross?: string;
+  weeks?: number;
 }
 
 export const getTopMovies = async (): Promise<Movie[]> => {
@@ -27,11 +31,12 @@ export const getTopMovies = async (): Promise<Movie[]> => {
 
     // Transform the API response to our Movie interface
     return response.data.map((item: any) => ({
-      id: item.id,
-      title: item.title,
-      year: item.year,
-      image: item.image,
-      rating: item.rating,
+      id: item.id || "",
+      title: item.primaryTitle || item.title || "",
+      year: item.startYear || item.year || "",
+      image: item.primaryImage || item.image || "",
+      rating: item.averageRating || item.rating || "",
+      rank: item.rank || null,
     }));
   } catch (error) {
     console.error("Error fetching top movies:", error);
@@ -52,9 +57,32 @@ export const getPopularMovies = async (): Promise<Movie[]> => {
       year: item.year,
       image: item.image,
       rating: item.rating,
+      rank: item.rank,
     }));
   } catch (error) {
     console.error("Error fetching popular movies:", error);
+    return [];
+  }
+};
+
+export const getTopBoxOffice = async (): Promise<Movie[]> => {
+  try {
+    const response = await apiClient.get(
+      "https://imdb236.p.rapidapi.com/imdb/top-box-office"
+    );
+
+    // Transform the API response to our Movie interface
+    return response.data.map((item: any) => ({
+      id: item.id,
+      title: item.title,
+      year: item.year || "",
+      image: item.image || "",
+      weekend: item.weekend,
+      gross: item.gross,
+      weeks: item.weeks,
+    }));
+  } catch (error) {
+    console.error("Error fetching top box office:", error);
     return [];
   }
 };
@@ -103,6 +131,7 @@ export const getMockMovies = (): Movie[] => [
     rating: "9.3",
     description:
       "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    rank: 1,
   },
   {
     id: "tt0068646",
@@ -113,6 +142,7 @@ export const getMockMovies = (): Movie[] => [
     rating: "9.2",
     description:
       "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    rank: 2,
   },
   {
     id: "tt0468569",
@@ -123,6 +153,7 @@ export const getMockMovies = (): Movie[] => [
     rating: "9.0",
     description:
       "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    rank: 3,
   },
   {
     id: "tt0167260",
@@ -133,6 +164,7 @@ export const getMockMovies = (): Movie[] => [
     rating: "9.0",
     description:
       "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    rank: 4,
   },
   {
     id: "tt0109830",
@@ -143,6 +175,60 @@ export const getMockMovies = (): Movie[] => [
     rating: "8.8",
     description:
       "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
+    rank: 12,
+  },
+];
+
+export const getMockBoxOffice = (): Movie[] => [
+  {
+    id: "tt1517268",
+    title: "Barbie",
+    year: "2023",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxNTljM2I0NDA5XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
+    weekend: "$93M",
+    gross: "$351.4M",
+    weeks: 2,
+  },
+  {
+    id: "tt15398776",
+    title: "Oppenheimer",
+    year: "2023",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
+    weekend: "$46.6M",
+    gross: "$174.1M",
+    weeks: 2,
+  },
+  {
+    id: "tt8589698",
+    title: "Haunted Mansion",
+    year: "2023",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BYjBmOWE3ZjAtODYwYS00NTRmLTgyNTAtZGQ5YmM2ZmNhMjhiXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
+    weekend: "$24.2M",
+    gross: "$24.2M",
+    weeks: 1,
+  },
+  {
+    id: "tt10366206",
+    title: "Sound of Freedom",
+    year: "2023",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BYzI0ZDc4YTMtYmY0ZC00ODU4LTk2ZGMtMDY0MTg5YjRlODMyXkEyXkFqcGdeQXVyNzYzMjAyMzU@._V1_.jpg",
+    weekend: "$12.4M",
+    gross: "$142.6M",
+    weeks: 4,
+  },
+  {
+    id: "tt10545296",
+    title: "The Mission: Impossible - Dead Reckoning Part One",
+    year: "2023",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BYzFiZjc1YzctMDY2Ni00N2NjLWIxOGMtOTMwZmNmN2M1YmJhXkEyXkFqcGdeQXVyMTUyMTUzNjQ0._V1_.jpg",
+    weekend: "$10.7M",
+    gross: "$139.2M",
+    weeks: 3,
   },
 ];
 
